@@ -16,12 +16,12 @@ Ext.define('App.view.Viewport', {
             value: '<b>Solicitação de Precificação</b>'
         });
 
-        // console.log(acl.menu.solicitacaoAlteracao.indexOf(USUARIO.usuario_sistema))
+        // console.log(acl.menu.solicitacaoAlteracao.indexOf(USUARIO.usuarioSistema))
         if(!USUARIO && USUARIO != '""'){
             window.location.href = BASEURL + '/login';
         }
         
-        if(acl.menu.solicitacaoAlteracao.indexOf(USUARIO.usuario_sistema) !== -1)
+        if(acl.menu.solicitacaoAlteracao.indexOf(USUARIO.usuarioSistema) !== -1)
         menu.push({ 
             text: 'Alteração de Preço',
             name: 'pvsolicitacaoalteracao',
@@ -30,7 +30,7 @@ Ext.define('App.view.Viewport', {
             }
         });
 
-        if(acl.menu.solicitacaoCadastro.indexOf(USUARIO.usuario_sistema) !== -1)
+        if(acl.menu.solicitacaoCadastro.indexOf(USUARIO.usuarioSistema) !== -1)
         menu.push({ 
             text: 'Cadastro de Preço',
             name: 'pvsolicitacaocadastro',

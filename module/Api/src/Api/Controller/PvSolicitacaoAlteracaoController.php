@@ -82,7 +82,7 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
 
             $em = $this->getEntityManager();
             
-            if($usuario->empresa === 'EC'){
+            if($usuario['empresa'] === 'EC'){
                 $sql = "
                     select id_empresa, apelido as nome from ms.empresa 
                     where id_matriz = 1 
@@ -98,11 +98,11 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
                 ";
             }
 
-            if($usuario->empresa !== 'EC'){
+            if($usuario['empresa'] !== 'EC'){
                 $sql = "
                     select id_empresa, apelido as nome from ms.empresa 
                      where id_matriz = 1 
-                       and apelido = '".$usuario->empresa."'
+                       and apelido = '".$usuario['empresa']."'
                 ";
             }
             
@@ -550,7 +550,7 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
             $session = $this->getSession();
             $usuario = $session['info'];
 
-            $pUsuario = $usuario->usuario_sistema;
+            $pUsuario = $usuario['usuarioSistema'];
             $pEmp = $this->params()->fromPost('emp',null);
             $pCodItem = $this->params()->fromPost('produto',null);
             $pPrecoIdeal = str_replace(",", ".", $this->params()->fromPost('preco',null));
@@ -603,7 +603,7 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
             $session = $this->getSession();
             $usuario = $session['info'];
             
-            $pUsuario = $usuario->usuario_sistema;
+            $pUsuario = $usuario['usuarioSistema'];
             $pSolicitacao = $this->params()->fromPost('solicitacao',null);
             $pMarkup = str_replace(",", ".", $this->params()->fromPost('markup',null));
             $pPreco = str_replace(",", ".", $this->params()->fromPost('preco',null));
@@ -646,7 +646,7 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
             $session = $this->getSession();
             $usuario = $session['info'];
             
-            $pUsuario = $usuario->usuario_sistema;
+            $pUsuario = $usuario['usuarioSistema'];
             $pSolicitacao = $this->params()->fromPost('solicitacao',null);
             $pComentario = $this->params()->fromPost('comentario',null);
 
@@ -682,7 +682,7 @@ class PvSolicitacaoAlteracaoController extends AbstractRestfulController
             $session = $this->getSession();
             $usuario = $session['info'];
             
-            $pUsuario = $usuario->usuario_sistema;
+            $pUsuario = $usuario['usuarioSistema'];
             $pSolicitacao = $this->params()->fromPost('solicitacao',null);
             $pMarkup = str_replace(",", ".", $this->params()->fromPost('markup',null));
             $pPreco = str_replace(",", ".", $this->params()->fromPost('preco',null));

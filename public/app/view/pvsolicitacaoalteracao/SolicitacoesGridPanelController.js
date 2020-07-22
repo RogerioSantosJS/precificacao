@@ -29,7 +29,7 @@ Ext.define('App.view.pvsolicitacaoalteracao.SolicitacoesGridPanelController', {
 
         // Libera acessos
         var aclBtnAnalisar = ['EVERTON'];
-        if(aclBtnAnalisar.indexOf(USUARIO.usuario_sistema) !== -1)
+        if(aclBtnAnalisar.indexOf(USUARIO.usuarioSistema) !== -1)
         me.acl.btnAnalisar = true;   
 
         // Remove os botões
